@@ -47,7 +47,6 @@
             this.setting_page_checkbox_subdirectory.TabIndex = 0;
             this.setting_page_checkbox_subdirectory.Text = "Include Subdirectories";
             this.setting_page_checkbox_subdirectory.UseVisualStyleBackColor = true;
-            this.setting_page_checkbox_subdirectory.CheckedChanged += new System.EventHandler(this.setting_page_checkbox_subdirectory_CheckedChanged);
             // 
             // setting_page_checkbox_full_scan
             // 

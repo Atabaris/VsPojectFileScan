@@ -38,7 +38,6 @@
             // main_page_btn_start
             // 
             this.main_page_btn_start.AccessibleName = "";
-            this.main_page_btn_start.Enabled = false;
             this.main_page_btn_start.Location = new System.Drawing.Point(12, 12);
             this.main_page_btn_start.Name = "main_page_btn_start";
             this.main_page_btn_start.Size = new System.Drawing.Size(138, 92);
@@ -49,7 +48,6 @@
             // 
             // main_page_btn_stop
             // 
-            this.main_page_btn_stop.Enabled = false;
             this.main_page_btn_stop.Location = new System.Drawing.Point(192, 13);
             this.main_page_btn_stop.Name = "main_page_btn_stop";
             this.main_page_btn_stop.Size = new System.Drawing.Size(138, 91);
@@ -70,7 +68,6 @@
             // 
             // main_page_text_box
             // 
-            this.main_page_text_box.Enabled = false;
             this.main_page_text_box.Location = new System.Drawing.Point(13, 127);
             this.main_page_text_box.Name = "main_page_text_box";
             this.main_page_text_box.Size = new System.Drawing.Size(851, 387);
@@ -82,9 +79,9 @@
             this.main_page_checkbox_log.AutoSize = true;
             this.main_page_checkbox_log.Location = new System.Drawing.Point(788, 91);
             this.main_page_checkbox_log.Name = "main_page_checkbox_log";
-            this.main_page_checkbox_log.Size = new System.Drawing.Size(74, 17);
+            this.main_page_checkbox_log.Size = new System.Drawing.Size(73, 17);
             this.main_page_checkbox_log.TabIndex = 5;
-            this.main_page_checkbox_log.Text = "Show Log";
+            this.main_page_checkbox_log.Text = "Close Log";
             this.main_page_checkbox_log.UseVisualStyleBackColor = true;
             this.main_page_checkbox_log.CheckedChanged += new System.EventHandler(this.main_page_checkbox_log_CheckedChanged);
             // 

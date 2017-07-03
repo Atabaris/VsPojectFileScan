@@ -9,5 +9,7 @@ namespace WindowsFormsApp1
     interface ICommand
     {
         void Execute();
+        void Stop();
+        string CommandName();
     }
 }

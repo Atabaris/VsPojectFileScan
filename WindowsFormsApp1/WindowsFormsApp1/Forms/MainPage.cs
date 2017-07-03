@@ -84,22 +84,22 @@ namespace WindowsFormsApp1
 
         private void main_page_btn_start_Click(object sender, EventArgs e)
         {
-
+            main_page_controller.StartButton();
         }
 
         private void main_page_btn_stop_Click(object sender, EventArgs e)
         {
-
+            main_page_controller.StopButton();
         }
 
         private void main_page_btn_settings_Click(object sender, EventArgs e)
         {
-            main_page_controller.Open_settings_page();
+            main_page_controller.OpenSettingPage();
         }
 
         private void main_page_checkbox_log_CheckedChanged(object sender, EventArgs e)
         {
-            
+            main_page_controller.CheckBoxLogChange();
         }
     }
 }
