@@ -56,6 +56,42 @@ namespace WindowsFormsApp1.Controller
             }
         }
 
+        private bool ExitButtonOptions()
+        {
+            bool ready;
+            if (setting_page.getSetting_page_checkbox_multiple_directory().Checked == true)//if multi directory choosed 
+            {
+                if (setting_page.getSetting_page_textbox_multiple_directory().TextLength == 0)// there is no path added
+                {
+                    ready = false;
+                }
+                else
+                {
+                    ready = true;
+                }
+            }
+            else//single path or fullscan choosed
+            {
+                if (setting_page.getSetting_page_checkbox_full_scan().Checked == true)//full scan choosed
+                {
+                    ready = true;
+                }
+                else//single directory choosed
+                {
+                    if (setting_page.getSetting_page_textbox_single_directory().TextLength == 0)//no path for single directory
+                    {
+                        ready = false;
+                    }
+                    else
+                    {
+                        ready = true;
+                    }
+                }
+            }
+
+            return ready;
+        }
+
         //MultiDirectory checkbox Method
         public void MultiDirectoryCheckBoxChange()
         {
@@ -106,7 +142,10 @@ namespace WindowsFormsApp1.Controller
         //Exit Button method
         public void ClosePage()
         {
-            setting_page.Visible = false;
+            if (ExitButtonOptions())
+            {
+                setting_page.Visible = false;
+            }
         }
     }
 }

@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\FileWatcher.cs" />
     <Compile Include="Commands\FullScanCommand.cs" />
+    <Compile Include="Commands\MultiDirectoryCommand.cs" />
     <Compile Include="Commands\SingleDirectoryCommand.cs" />
     <Compile Include="Controllers\SettingPageController.cs" />
     <Compile Include="Interfaces\ICommand.cs" />

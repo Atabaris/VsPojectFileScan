@@ -58,10 +58,14 @@ namespace WindowsFormsApp1
                 command = new SingleDirectoryCommand(main_page);
                 command.Execute();
             }
+            else//multi directory choosed , subdirectories may be included
+            {
+                command = new MultiDirectoryCommand(main_page);
+                command.Execute();
+            }
             main_page.getMain_page_btn_start().Text = "Started";
             main_page.getMain_page_btn_stop().Text = "Stop";
             main_page.getMain_page_btn_settings().Enabled = false;
-
         }
 
         private void StopButtonOptions()
