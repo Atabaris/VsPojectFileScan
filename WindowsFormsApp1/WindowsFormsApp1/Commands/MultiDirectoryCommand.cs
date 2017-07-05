@@ -63,7 +63,7 @@ namespace WindowsFormsApp1.Commands
 
         private void CreatePaths()
         {
-            for (int i = 0; i < main_page.getSettingPage().getSetting_page_textbox_multiple_directory().Lines.Count() - 1; i++)
+            for (int i = 0; i < main_page.getSettingPage().getSetting_page_textbox_multiple_directory().Lines.Count() - 1; i++)// Paths in the textbox of main_page
             {
                 string line = main_page.getSettingPage().getSetting_page_textbox_multiple_directory().Lines[i];
                 watcher_paths.Add(line);

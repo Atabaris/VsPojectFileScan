@@ -13,39 +13,14 @@ namespace WindowsFormsApp1
         MainPage main_page;
         ICommand command;
 
-
+        //Constructor
         public MainPageController(MainPage main_page)
         {
             this.main_page = main_page;
         }
-        //Setting Page Button Method
-        public void OpenSettingPage()
-        {
-            if (main_page.getSettingPage() == null)
-            {
-                SettingsPage new_settings_page = new SettingsPage();
-                main_page.setSetting_Page(new_settings_page);
 
-            }
-            main_page.getSettingPage().Visible = true;
-
-        }
-        //CheckboxLog Method
-        public void CheckBoxLogChange()
-        {
-            if (main_page.getMain_page_checkbox_log().Checked == true)
-            {
-                main_page.getMain_page_checkbox_log().Text = "Show Log";
-                main_page.getMain_page_text_box().Text = "Log Closed";
-            }
-            else
-            {
-                main_page.getMain_page_checkbox_log().Text = "Close Log";
-                main_page.getMain_page_text_box().Text = "Log Opened";
-            }
-        }
-
-        private void StartButtonOptions()
+        //Sub methods
+        private void StartButtonOptions()  // User have to choose one of 3 methods for exit settings page
         {
             if (main_page.getSettingPage().getSetting_page_checkbox_full_scan().Checked == true)//FullScan choosed
             {
@@ -74,6 +49,22 @@ namespace WindowsFormsApp1
             main_page.getMain_page_btn_settings().Enabled = true;
 
         }
+
+        //CheckboxLog Method
+        public void CheckBoxLogChange()
+        {
+            if (main_page.getMain_page_checkbox_log().Checked == true)
+            {
+                main_page.getMain_page_checkbox_log().Text = "Show Log";
+                main_page.getMain_page_text_box().Text = "Log Closed";
+            }
+            else
+            {
+                main_page.getMain_page_checkbox_log().Text = "Close Log";
+                main_page.getMain_page_text_box().Text = "Log Opened";
+            }
+        }
+
         //Stop Button Method
         public void StopButton()
         {
@@ -87,6 +78,19 @@ namespace WindowsFormsApp1
         public void StartButton()
         {
             StartButtonOptions();
+        }
+
+        //Setting Page Button Method
+        public void OpenSettingPage()
+        {
+            if (main_page.getSettingPage() == null)
+            {
+                SettingsPage new_settings_page = new SettingsPage();
+                main_page.setSetting_Page(new_settings_page);
+
+            }
+            main_page.getSettingPage().Visible = true;
+
         }
 
     }

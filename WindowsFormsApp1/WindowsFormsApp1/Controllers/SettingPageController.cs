@@ -17,7 +17,7 @@ namespace WindowsFormsApp1.Controller
         }
 
         //Sub Methods
-        private void FullScanSettingsActive()
+        private void FullScanSettingsActive() //Change interface of form when Full Scan checkbox checked
         {
             setting_page.getSetting_page_checkbox_subdirectory().Enabled = false;
             setting_page.getSetting_page_checkbox_subdirectory().Checked = false;

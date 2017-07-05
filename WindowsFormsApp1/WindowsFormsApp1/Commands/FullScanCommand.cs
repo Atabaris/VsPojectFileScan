@@ -46,9 +46,9 @@ namespace WindowsFormsApp1.Commands
         }
 
         //Sub Methods
-        private void CreateWatchers()
+        private void CreateWatchers()//Add multiple watcher object to list
         {
-            foreach (string directory_path in Environment.GetLogicalDrives())
+            foreach (string directory_path in Environment.GetLogicalDrives())//Get Logical Disk of computer Ex: C:\\ D:\\ E:\\  USB and extratable disk are not included 
             {
                 FileWatcher watcher = new FileWatcher(main_page, directory_path);
                 watcher.getWatcher().IncludeSubdirectories = true;

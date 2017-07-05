@@ -11,7 +11,7 @@ namespace WindowsFormsApp1.Commands
     class SingleDirectoryCommand : ICommand
     {
         MainPage main_page;
-        FileSystemWatcher watcher;
+        private FileWatcher watcher;
 
         public SingleDirectoryCommand(MainPage main_page)
         {
@@ -27,20 +27,20 @@ namespace WindowsFormsApp1.Commands
         public void Execute()
         {
             CreateWatcher();
-            watcher.EnableRaisingEvents = true;
+            watcher.getWatcher().EnableRaisingEvents = true;
         }
 
         public void Stop()
         {
-            watcher.EnableRaisingEvents = false;
-            watcher.Dispose();
+            watcher.getWatcher().EnableRaisingEvents = false;
+            watcher.getWatcher().Dispose();
         }
 
         //Sub Methods
         private void CreateWatcher()
         {
             string directory_path = main_page.getSettingPage().getSetting_page_textbox_single_directory().Text;
-            FileWatcher watcher = new FileWatcher(main_page, directory_path);                        
+            watcher= new FileWatcher(main_page, directory_path);                        
             if (main_page.getSettingPage().getSetting_page_checkbox_subdirectory().Checked == true)
             {
                 watcher.getWatcher().IncludeSubdirectories = true;
