@@ -40,7 +40,8 @@ namespace WindowsFormsApp1.Commands
         private void CreateWatcher()
         {
             string directory_path = main_page.getSettingPage().getSetting_page_textbox_single_directory().Text;
-            watcher= new FileWatcher(main_page, directory_path);                        
+            watcher= new FileWatcher(main_page, directory_path);
+            watcher.createWatcher();// create watcher object
             if (main_page.getSettingPage().getSetting_page_checkbox_subdirectory().Checked == true)
             {
                 watcher.getWatcher().IncludeSubdirectories = true;

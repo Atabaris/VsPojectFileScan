@@ -53,6 +53,7 @@ namespace WindowsFormsApp1.Commands
             foreach (string directory_path in watcher_paths)
             {
                 FileWatcher watcher = new FileWatcher(main_page, directory_path);
+                watcher.createWatcher();//create wathcer object
                 if (main_page.getSettingPage().getSetting_page_checkbox_subdirectory().Checked == true)
                 {
                     watcher.getWatcher().IncludeSubdirectories = true;

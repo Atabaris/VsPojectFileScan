@@ -10,7 +10,7 @@ namespace WindowsFormsApp1.Commands
 {
     class FullScanCommand : ICommand
     {
-        List<FileWatcher> watchers = new List<FileWatcher>();
+        private List<FileWatcher> watchers = new List<FileWatcher>();
         MainPage main_page;
 
         public FullScanCommand(MainPage main_page)
@@ -51,6 +51,7 @@ namespace WindowsFormsApp1.Commands
             foreach (string directory_path in Environment.GetLogicalDrives())//Get Logical Disk of computer Ex: C:\\ D:\\ E:\\  USB and extratable disk are not included 
             {
                 FileWatcher watcher = new FileWatcher(main_page, directory_path);
+                watcher.createWatcher();
                 watcher.getWatcher().IncludeSubdirectories = true;
                 watchers.Add(watcher);
             }
