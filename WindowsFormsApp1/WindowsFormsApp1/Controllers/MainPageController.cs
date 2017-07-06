@@ -90,7 +90,6 @@ namespace WindowsFormsApp1
 
             }
             main_page.getSettingPage().Visible = true;
-
         }
 
     }

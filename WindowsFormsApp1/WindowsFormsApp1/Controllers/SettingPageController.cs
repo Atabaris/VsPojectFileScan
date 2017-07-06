@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1.Controller
 {
@@ -146,6 +147,18 @@ namespace WindowsFormsApp1.Controller
             {
                 setting_page.Visible = false;
             }
+        }
+
+        //Copy Files checkbox method
+        public void OpenClientPage()
+        {
+            if (setting_page.getClientPage() == null)
+            {
+                ClientPage new_client_page = new ClientPage();
+                setting_page.setClientPage(new_client_page);
+
+            }
+            setting_page.getClientPage().Visible = true;
         }
     }
 }

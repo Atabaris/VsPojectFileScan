@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Controller;
+using WindowsFormsApp1.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class SettingsPage : Form
     {
+        ClientPage client_page;
         SettingPageController setting_page_controller;
         //Constructor
         public SettingsPage()
@@ -56,6 +58,11 @@ namespace WindowsFormsApp1
             return setting_page_checkbox_multiple_directory;
         }
         
+        public CheckBox getSetting_page_chekcbox_copy_files()
+        {
+            return setting_page_checkbox_copy_files;
+        }
+
         public TextBox getSetting_page_textbox_single_directory()
         {
             return setting_page_textbox_single_directory;
@@ -64,6 +71,16 @@ namespace WindowsFormsApp1
         public RichTextBox getSetting_page_textbox_multiple_directory()
         {
             return setting_page_textbox_multiple_directory;
+        }
+
+        public ClientPage getClientPage()
+        {
+            return client_page;
+        }
+
+        public void setClientPage(ClientPage client_page)
+        {
+            this.client_page = client_page;
         }
 
 
@@ -91,6 +108,11 @@ namespace WindowsFormsApp1
         private void setting_page_checkbox_multiple_directory_CheckedChanged(object sender, EventArgs e)
         {
             setting_page_controller.MultiDirectoryCheckBoxChange();
+        }
+
+        private void setting_page_checkbox_copy_files_CheckedChanged(object sender, EventArgs e)
+        {
+            setting_page_controller.OpenClientPage();
         }
     }
 }

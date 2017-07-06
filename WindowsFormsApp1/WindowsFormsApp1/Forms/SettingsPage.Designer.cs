@@ -36,6 +36,7 @@
             this.setting_page_textbox_multiple_directory = new System.Windows.Forms.RichTextBox();
             this.setting_page_btn_clear_textbox = new System.Windows.Forms.Button();
             this.setting_page_btn_exit = new System.Windows.Forms.Button();
+            this.setting_page_checkbox_copy_files = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // setting_page_checkbox_subdirectory
@@ -118,11 +119,23 @@
             this.setting_page_btn_exit.UseVisualStyleBackColor = true;
             this.setting_page_btn_exit.Click += new System.EventHandler(this.setting_page_btn_exit_Click);
             // 
+            // setting_page_checkbox_copy_files
+            // 
+            this.setting_page_checkbox_copy_files.AutoSize = true;
+            this.setting_page_checkbox_copy_files.Location = new System.Drawing.Point(197, 13);
+            this.setting_page_checkbox_copy_files.Name = "setting_page_checkbox_copy_files";
+            this.setting_page_checkbox_copy_files.Size = new System.Drawing.Size(120, 17);
+            this.setting_page_checkbox_copy_files.TabIndex = 8;
+            this.setting_page_checkbox_copy_files.Text = "Copy Files to Server";
+            this.setting_page_checkbox_copy_files.UseVisualStyleBackColor = true;
+            this.setting_page_checkbox_copy_files.CheckedChanged += new System.EventHandler(this.setting_page_checkbox_copy_files_CheckedChanged);
+            // 
             // SettingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 578);
+            this.Controls.Add(this.setting_page_checkbox_copy_files);
             this.Controls.Add(this.setting_page_btn_exit);
             this.Controls.Add(this.setting_page_btn_clear_textbox);
             this.Controls.Add(this.setting_page_textbox_multiple_directory);
@@ -148,5 +161,6 @@
         private System.Windows.Forms.RichTextBox setting_page_textbox_multiple_directory;
         private System.Windows.Forms.Button setting_page_btn_clear_textbox;
         private System.Windows.Forms.Button setting_page_btn_exit;
+        private System.Windows.Forms.CheckBox setting_page_checkbox_copy_files;
     }
 }
