@@ -124,17 +124,12 @@ namespace WindowsFormsApp1.Controller
         //Copy Files checkbox method
         public void OpenClientPage()
         {
-            if (setting_page.getSetting_page_chekcbox_copy_files().Checked == true)//User will uncheck it
-            {
-                setting_page.getSetting_page_chekcbox_copy_files().Checked = false;
-            }
-            else//User want to use it
+            if (setting_page.getSetting_page_chekcbox_copy_files().Checked == true)
             {
                 if (setting_page.getClientPage() == null)
                 {
                     ClientPage new_client_page = new ClientPage();
                     setting_page.setClientPage(new_client_page);
-
                 }
                 setting_page.getClientPage().Visible = true;
             }

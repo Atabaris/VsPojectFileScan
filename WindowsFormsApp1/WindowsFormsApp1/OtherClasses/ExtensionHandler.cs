@@ -72,21 +72,21 @@ namespace WindowsFormsApp1.OtherClasses
                     case ".docx":
                         if (change_type.Equals("Created"))//Change event type
                         {
-                            text = "File " + change_type + " " + event_arg_change.Name + "\n";
+                            text = "File :" + change_type + ":" + event_arg_change.Name + "\n";
                         }
                         else if (change_type.Equals("Renamed"))
                         {
-                            text = "File " + event_arg_rename.OldName + " " + change_type + " " + event_arg_rename.Name + "\n";
+                            text = "File :" + event_arg_rename.OldName + " " + change_type + ":" + event_arg_rename.Name + "\n";
                         }
                         break;
                     case ".txt":
                         if (change_type.Equals("Changed"))
                         {
-                            text = "File " + change_type + " " + event_arg_change.Name + "\n";
+                            text = "File :" + change_type + ":" + event_arg_change.Name + "\n";
                         }
                         else if (change_type.Equals("Renamed"))
                         {
-                            text = "File " + event_arg_rename.OldName + " " + change_type + " " + event_arg_rename.Name + "\n";
+                            text = "File :" + event_arg_rename.OldName + ":" + change_type + ":" + event_arg_rename.Name + "\n";
                         }
                         break;
                 }

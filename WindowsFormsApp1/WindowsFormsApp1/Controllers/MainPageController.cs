@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WindowsFormsApp1.Commands;
+using WindowsFormsApp1.OtherClasses;
 
 namespace WindowsFormsApp1
 {
@@ -11,6 +13,8 @@ namespace WindowsFormsApp1
     {
 
         MainPage main_page;
+        PathHolderThread thread;
+        Thread oThread;
         ICommand command;
 
         //Constructor
@@ -41,8 +45,14 @@ namespace WindowsFormsApp1
                 }
                 main_page.getMain_page_btn_start().Text = "Started";
                 main_page.getMain_page_btn_stop().Text = "Stop";
+                main_page.getMain_page_text_box().AppendText("Started");
                 main_page.getMain_page_btn_settings().Enabled = false;
             }
+            //!!!!!!   !!!!!!!!!!!! !!!!!!
+
+            PathHolderThread thread = new PathHolderThread(main_page);
+            oThread = new Thread(new ThreadStart(thread.Run));
+            oThread.Start();
         }
 
         //CheckboxLog Method
@@ -71,6 +81,7 @@ namespace WindowsFormsApp1
             }
             command = null;
             main_page.getMain_page_btn_settings().Enabled = true;
+            oThread.Abort();
 
         }
 
