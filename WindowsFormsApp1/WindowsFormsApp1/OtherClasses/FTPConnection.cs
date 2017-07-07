@@ -11,8 +11,7 @@ namespace WindowsFormsApp1.OtherClasses
     class FTPConnection
     {
         FtpWebRequest request;
-        Stream responseStream;
-        StreamReader reader;
+        FtpWebResponse response;
         private string host_name;
         private string user_name;
         private string user_password;
@@ -27,24 +26,20 @@ namespace WindowsFormsApp1.OtherClasses
             this.port = port;
         }
 
-        public string OpenConnection()
+        public string OpenTestConnection()
         {
             string result;
             try
             {
                 request = (FtpWebRequest)WebRequest.Create("ftp://" + host_name + ":" + port + "/");
                 request.Method = WebRequestMethods.Ftp.ListDirectory;
+                request.KeepAlive = false;
                 request.Credentials = new NetworkCredential(user_name, user_password);
-                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-
-                responseStream = response.GetResponseStream();
-                reader = new StreamReader(responseStream);
-                result = reader.ReadToEnd()+"\n";
-                result = result + "Connected";
+                response = (FtpWebResponse)request.GetResponse();
+                result = "Connection work";
                 connected = true;
             }
             catch (Exception e)
-
             {
                 result = e.Message.ToString();
             }
@@ -52,14 +47,13 @@ namespace WindowsFormsApp1.OtherClasses
             return result;
         }
 
-        public void CloseConnection()
+        public void CloseTestConnection()
         {
             if (IsConnected())
-            {                
-                reader.Close();
-                responseStream.Close();
+            {
+                response.Close();
                 request = null;
-            }          
+            }
         }
 
         public bool IsConnected()

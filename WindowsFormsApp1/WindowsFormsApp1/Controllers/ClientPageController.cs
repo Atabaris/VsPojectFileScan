@@ -11,11 +11,21 @@ namespace WindowsFormsApp1.Controllers
     class ClientPageController
     {
         ClientPage client_page;
-
+        FTPConnection connection;
         //Constructor
         public ClientPageController(ClientPage client_page)
         {
             this.client_page = client_page;
+        }
+
+
+        //Sub Methods
+        private void setConnected()
+        {
+            if (connection.IsConnected())
+            {
+                client_page.setClient_page_connection_to_server(true);
+            }
         }
 
         //Exit button 
@@ -31,10 +41,11 @@ namespace WindowsFormsApp1.Controllers
             string user_password = client_page.getClient_page_textbox_password().Text;
             string port = client_page.getClient_page_textbox_port().Text;
 
-            FTPConnection connection = new FTPConnection(host_name,user_name,user_password,port);
-            string result=connection.OpenConnection();
+            connection = new FTPConnection(host_name,user_name,user_password,port);
+            string result=connection.OpenTestConnection();
             client_page.getClient_page_label_error().Text = result;
-            connection.CloseConnection();
+            connection.CloseTestConnection();
+            setConnected();
         }
     }
 }

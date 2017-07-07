@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApp1.OtherClasses;
 
 namespace WindowsFormsApp1.Classes
 {
@@ -12,10 +13,12 @@ namespace WindowsFormsApp1.Classes
         private MainPage main_page;
         private FileSystemWatcher watcher;
         private string directory_path;
+        ExtensionHandler handler;
         public FileWatcher(MainPage main_page, string directory_path)
         {
             this.main_page = main_page;
             this.directory_path = directory_path;
+            handler = new ExtensionHandler();
         }
 
         public void createWatcher()
@@ -33,12 +36,16 @@ namespace WindowsFormsApp1.Classes
         private void OnChanged(object source, FileSystemEventArgs e)
         {
             string name = e.Name;
-            string type = e.ChangeType.ToString();
+            string type = e.ChangeType.ToString();           
             if (main_page.getMain_page_text_box().Text != "Log Closed")
             {
-                main_page.getMain_page_text_box().AppendText("[[File " + type + "]] " + name + "\n");
+                handler.setChangeEvent(e);
+                handler.setRenameEvent(null);
+                if (handler.handle() != null)
+                {
+                    main_page.getMain_page_text_box().AppendText(handler.handle());
+                }                
             }
-
         }
 
         private void OnRenamed(object source, RenamedEventArgs e)
@@ -47,7 +54,12 @@ namespace WindowsFormsApp1.Classes
             string _new = e.Name;
             if (main_page.getMain_page_text_box().Text != "Log Closed")
             {
-                main_page.getMain_page_text_box().AppendText("[[File renamed ]] " + _old + " --->>> " + _new + "\n");
+                handler.setChangeEvent(null);
+                handler.setRenameEvent(e);
+                if (handler.handle() != null)
+                {
+                    main_page.getMain_page_text_box().AppendText(handler.handle());
+                }
             }
         }
 

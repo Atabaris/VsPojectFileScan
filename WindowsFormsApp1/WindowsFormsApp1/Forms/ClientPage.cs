@@ -53,6 +53,11 @@ namespace WindowsFormsApp1.Forms
             return client_page_connection_to_sever;
         }
 
+        public void setClient_page_connection_to_server(bool state)
+        {
+            this.client_page_connection_to_sever = state;
+        }
+
         //Methods
         private void client_page_button_exit_Click(object sender, EventArgs e)
         {

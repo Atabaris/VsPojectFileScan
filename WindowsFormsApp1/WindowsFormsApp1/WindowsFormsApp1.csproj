@@ -52,6 +52,7 @@
     <Compile Include="Forms\ClientPage.Designer.cs">
       <DependentUpon>ClientPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="OtherClasses\ExtensionHandler.cs" />
     <Compile Include="OtherClasses\FilePair.cs" />
     <Compile Include="OtherClasses\FileWatcher.cs" />
     <Compile Include="Commands\FullScanCommand.cs" />
